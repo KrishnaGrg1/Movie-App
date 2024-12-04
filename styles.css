@@ -862,8 +862,8 @@ body {
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
     gap: 4rem;
-
-    color: white;
+    background: #3e4e50;
+    color: #fff9c4;
 }
 
 
