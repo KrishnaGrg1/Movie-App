@@ -852,3 +852,161 @@ body {
     color: white;
 
   }
+
+
+  .contact {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    gap: 4rem;
+
+    color: white;
+}
+
+
+.contact-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+}
+.contact-top  h2 {
+    color: black;
+    font-size: 3rem;
+    font-weight:bold;
+    margin: 0;
+    color: hsl(var(--hue-color), 8%, 65%);
+  }
+  
+  .contact-top  p {
+    color:black;
+    font-size: 1rem;
+    color: hsl(var(--hue-color), 8%, 65%);;
+    margin: 0;
+  }
+
+
+  .contact-section {
+    display: flex;
+    align-items: flex-start; /* Align items at the start (top) */
+    justify-content: space-between; /* Space between items */
+    width: 60vw;
+    gap: 4rem;
+}
+.contact-info-mid{
+    width: 30%;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+   gap: 20px;
+   
+}
+.info-item i {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-right: 15px;
+}
+.info-item h3 {
+    font-size: 18px;
+    margin: 0;
+}
+.contact-info-mid .info-item p {
+    font-size: 14px;
+    color: #4D2D2D;
+    margin: 5px 0 0 0;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(217, 217, 217, 0.2);
+    color: #fff;
+    font-size: 14px;
+}
+.contact-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(217, 217, 217, 0.2);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.contact-form button i {
+    margin-left: 10px;
+}
+
+
+.footer {
+  padding: 2rem 0;
+  background-color: #222;
+  color: #fff;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Ensure responsiveness */
+}
+
+.footer__title {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  margin-left: 2rem;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.3s;
+}
+
+.footer__link:hover {
+  color: #F0E0CC; /* Light color on hover */
+}
+
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+  margin-right: 2.5rem;
+}
+
+.footer__social {
+  color: #fff;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: transform 0.3s;
+  
+}
+
+.footer__social:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+.footer__copy {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  padding: 1rem 0; /* Add some space above the copyright */
+}
