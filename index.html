@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Streaming</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="navbar">
+      <div class="search-container">
+        <i class="fa fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search movies...">
+        <div id="searchResults"></div>
+      </div>
+      <button class="hamburger-menu" id="hamburgerMenu">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav>
+        <a href="#">Movies</a>
+        <a href="#">Horror</a>
+        <a href="#">Documentary</a>
+        <a href="#">More</a>
+      </nav>
+      <div class="profile">
+        <img src="logo.jpg" alt="Profile">
+        <button>Sign In</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Left Section -->
+      <div class="left">
+        <!-- Trending Trailer Section -->
+        <section class="trending-trailer">
+          <h2>New Trending Trailer</h2>
+          <div class="trailers">
+           
+          </div>
+        </section>
+
+        <!-- Continue Watching Section -->
+        <section class="continue-watching">
+          <h2>Continue Watching</h2>
+          <ul id="continueWatchingList">
+              <!-- Movie items will be dynamically inserted here -->
+          </ul> 
+      </section>
+      </div>
+
+      <!-- Right Section -->
+      <div class="right">
+        <!-- Now on Trending Section -->
+        <section class="trending">
+          <h2>Now on Trending</h2>
+          <div class="trending-content">
+              <!-- Content will be populated via JS -->
+          </div>
+      </section>
+
+        <!-- Top Picks Section -->
+        <section class="top-picks">
+          <h2>Top Picks For You</h2>
+          <div class="movie-cards">
+            <!-- Content will be populated via JS -->
+            
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

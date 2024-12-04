@@ -1,0 +1,854 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Georgia;
+   background-image: url(./background.jpg);
+    color: #cccccc;
+    overflow-x: hidden;
+    min-width: 1280px;
+    
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    
+  }
+  
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    background-color: gray; /* Same background for the container */
+    color: white;
+    border-radius: 30px;
+    width: 265px; /* Set width of the container */
+    height: 40px; /* Set height of the container */
+    gap: 10px; /* Space between the icon and input */
+    padding: 0 10px; /* Adjust padding inside container */
+  }
+
+  /* Search input field styling */
+  .search-container input[type="text"] {
+    background-color: gray; /* Same background for input field */
+    color: white;
+    
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    padding: 0 10px;
+  }
+
+  /* Placeholder styling */
+  .search-container input[type="text"]::placeholder {
+    color: white; /* White placeholder text */
+    opacity: 0.8; /* Slightly faded for contrast */
+  }
+
+  /* Remove the default outline when focused */
+  .search-container input[type="text"]:focus {
+    outline: none;
+  }
+
+  /* Search Icon */
+  .search-container i {
+    color: #cccccc; /* Light gray color for the search icon */
+    font-size: 16px; /* Icon size */
+  }
+  
+  header button {
+    padding: 10px 15px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  
+   .profile {
+    background-color: rgba(217, 217, 217, 0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height:47px;
+    width: 223px;
+  }
+  
+  .profile img {
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    mix-blend-mode: multiply;
+    border-radius: 100%;
+  }
+  .profile:hover{
+    background-color:lightgray;
+  }
+  .profile span button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+  }
+ 
+  
+  /* Navigation Menu */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    width: 60%;
+  }
+  
+  nav a {
+    color: darkgray;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  nav a:hover, nav a.active {
+    background-color:darkgray;
+    border-radius: 20px;
+    color: white;
+
+  }
+  /* .profile{
+    background-color: darkgray;
+    padding: 10px 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    height: 25px;
+    width: 90px;
+    
+  }
+  .profile img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    mix-blend-mode: multiply;
+    border-radius: 100%;
+
+  } */
+  /* Main Content */
+  main{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 20px 40px;
+  }
+  .left{
+    width:25%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    gap: 30px;
+    opacity: 1;
+  }
+ 
+/* Trending Trailer Section */
+.trending-trailer {
+  background-color: rgba(217, 217, 217, 0.2); /* Semi-transparent light gray */
+  color: white; /* Text color is white for good contrast */
+  border-radius: 30px;
+  height: 365px; /* Fixed height for the trailer section */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 265px;
+  overflow-y: auto;
+}
+
+.trending-trailer h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  color: white; /* Ensure the text is white */
+  text-align: center; /* Center the text */
+}
+
+.trailers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Trailer Item Styling */
+.trailer-item {
+  display: flex; /* Use flex to align image and text side by side */
+  align-items: center;
+  gap: 15px; /* Space between image and text */
+  justify-content: space-between;
+  width: 233px; /* Set width to 233px */
+  height: 120px; /* Set height to 120px */
+  overflow: hidden; /* Prevent content from overflowing */
+  border-radius: 10px; /* Rounded corners */
+  background-color: rgba(0, 0, 0, 0.3); /* Dark background for trailer items */
+  position: relative; /* To ensure the iframe and other content are placed correctly */
+}
+
+.trailer-item i {
+  width: 60px; /* Set the width of the image */
+  height: 60px; /* Set the height of the image */
+  object-fit: contain; /* Ensures the image covers the area without distortion */
+  border-radius: 5px; /* Optional: Round the corners of the image */
+}
+
+.trailer-item .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 100%; /* Ensure text takes up remaining space */
+}
+
+/* Ensuring the iframe fits well inside the trailer-item */
+.trailer-item iframe {
+  width: 100%; /* Make iframe take full width of the container */
+  height: 100%; /* Make iframe take full height of the container */
+  border: none; /* Remove border from iframe */
+  border-radius: 5px; /* Optional: Round the iframe's corners */
+  object-fit: cover; /* Maintain the aspect ratio */
+  position: absolute; /* Position the iframe inside the container */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+}
+
+
+  /* .continue-watching{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    color: white;
+    border-radius: 30px;
+    height: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+   
+  } */
+
+  .continue-watching {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    background-color: rgba(217, 217, 217, 0.2);
+    color: white; /* White text color */
+    border-radius: 30px; /* Rounded corners */
+    height: 255px; /* Adjust height dynamically to fit content */
+    width: 245px;
+    padding: 20px; /* Add spacing inside the container */
+    gap: 15px; /* Add spacing between rows */
+
+  }
+  
+  /* Ensure the section fits within the layout */
+  .continue-watching h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f5f5f5; /* Slightly brighter title */
+    padding-bottom: 10px;
+   
+  }
+  
+
+  /* Continue Watching Section */
+#continueWatchingList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .continue-watching li {
+    margin-bottom: 15px;
+  }
+  
+  .movie-item {
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+    border-radius: 10px;
+    
+  }
+  
+  .movie-item img {
+    width: 46px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .movie-item .details {
+    flex: 1;
+    margin-left: 15px;
+  }
+  
+  .movie-item .details h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+  }
+  
+  .movie-item .details span {
+    font-size: 12px;
+    color: #cccccc;
+  }
+  .play-button {
+    background-color: lightgray;
+    color: #ACA9A9;
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 26px; /* Adjust width */
+    height: 26px; /* Adjust height */
+    display: flex;
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .play-button:hover {
+    background-color: black; /* Change background color on hover */
+  }
+  
+  /* Icon size adjustment */
+  .play-button i {
+    font-size: 14px; /* Adjust the icon size (relative to the button size) */
+    color: #ACA9A9; /* Color of the icon */
+  }
+  
+  .play-button:focus {
+    outline: none; /* Remove outline on focus */
+  }
+  
+  
+  .right{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    gap: 30px;
+  }
+
+  .trending {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 365px;
+    min-width: 818px;
+    border-radius: 30px;
+    background-color: lightgray;
+    color: white;
+    padding: 0 30px 20px 30px;
+    background-image: url('./topgun.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.trending h2 {
+    font-size: 20px;
+    color: white; /* Ensure text is readable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: rgba(217, 217, 217, 0.2); /* Background with 20% opacity */
+    width: 188px;
+    height: 36px;
+}
+
+
+
+  .trending-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 80%;
+
+    
+  }
+ .info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    padding: 10px;
+    font-size: 1.25rem;
+ }
+  .info h3{
+    font-size: 34px;
+    margin: 0;
+    font-weight: bold;
+  }
+  .info p{
+    font-size: 20px;
+    color:#FFFFFF;
+    margin: 0;
+    font-weight: lighter;
+  }
+  .info-button-section{
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+    
+  }
+  .info-button-section button{
+    padding: 10px 15px;
+    border: none;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 36px;
+    width: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .info-button-section button i{
+    height: 22px;
+    width: 16px;
+  }
+  .info-button-section #playlist {
+    background-color: rgba(217, 217, 217, 0.2); /* Light gray background with 20% opacity */
+    color: #FFFFFF; /* Ensure the text remains visible */
+    height: 36px;
+    width: 166px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  /* Top Picks For You Section */
+.top-picks {
+    display: flex;
+    flex-direction: column; /* Title above the cards */
+     /* Dark gray background for contrast */
+    color: white;
+    
+    gap: 10px;
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  .top-picks h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #f5f5f5; /* Bright title color */
+    padding-bottom: 10px;
+   
+  }
+  
+  /* Movie Cards Container */
+  .movie-cards {
+    display: flex;
+   align-items: center;
+    justify-content: space-between; /* Center and space the cards evenly */
+    gap: 20px;
+  }
+  
+  /* Individual Movie Card */
+.card {
+    position: relative;
+    width: 200px;
+    height: 255px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image inside the card */
+.card img {
+    height: 255px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+/* Play Button Overlay */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;  /* Initially hidden */
+    visibility: hidden;  /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Transition opacity smoothly, delay visibility change */
+}
+
+/* Show the overlay when the card is hovered */
+.card:hover .play-overlay {
+    opacity: 1;  /* Fade in */
+    visibility: visible;  /* Make the overlay visible */
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Show instantly after fade */
+}
+
+
+  
+
+  
+
+  /* Sidebar */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    background: #101020;
+    border-radius: 10px;
+  }
+  
+  .sidebar .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar .continue-watching {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .sidebar .continue-watching-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sidebar .continue-watching-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .sidebar .continue-watching-item .details {
+    flex: 1;
+  }
+  
+  .sidebar .continue-watching-item .details h4 {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  .sidebar .continue-watching-item .details span {
+    font-size: 0.8rem;
+    color: #cccccc;
+  }
+  
+  .sidebar .continue-watching-item button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #e43f5a;
+    color: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  
+  .sidebar .continue-watching-item button:hover {
+    background-color: #f95d77;
+  }
+  
+  
+
+
+/* Search Results Container (Dropdown) */
+#searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color:darkgray;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none; /* Hidden by default */
+}
+
+/* When results are available, show the container */
+#searchResults.visible {
+  display: block;
+}
+
+/* Individual Movie Item in Search Results */
+.search-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+  width:100%;
+}
+
+.search-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Movie Thumbnail */
+.search-item-thumbnail {
+  width: 60px;
+  height: 90px;
+  margin-right: 15px;
+}
+
+.search-item-thumbnail img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Movie Info */
+.search-item-info {
+  flex: 1;
+}
+
+.search-item-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+
+}
+
+.search-item-info p {
+  font-size: 14px;
+  color:white;
+}
+
+.search-item-info span {
+  color:white;
+}
+
+/* WatchList Button */
+.watchListBtn {
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+ 
+}
+
+.watchListBtn:hover {
+  background-color: #005f73;
+}
+
+.watchListBtn:focus {
+  outline: none;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) { 
+    /* Adjust Header */
+    header {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 10px;
+    }
+
+    .search-container {
+        width: 90%; /* Make search bar wider on smaller screens */
+        margin-bottom: 10px; 
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column; /* Stack navigation links */
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    .profile {
+       
+        margin-top: 10px; /* Add some space */
+    }
+
+    /* Adjust Main Content Layout */
+    main {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .left, .right {
+        width: 100%; /* Make both sections full width */
+    }
+
+    
+
+    /* Adjust Trending Trailer Section */
+    .trending-trailer {
+        margin: 0 auto;
+        width: 60%; /* Make it full width */
+    }
+
+    /* Adjust Continue Watching Section */
+    .continue-watching {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        
+        width: 60%; /* Make it full width */
+        margin: 0 auto;
+    }
+    .movie-item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+    .trending{
+        width: 50%;
+        margin: 0 auto;
+    }
+    .trailer-item{
+        width: 100%;
+    }
+    /* Adjust Top Picks For You Section */
+    .top-picks {
+        width: 60%; /* Make it full width */
+        margin: 0 auto;
+    }
+    .top-picks h2{
+        margin: 0 auto;
+    }
+    .movie-cards {
+        flex-direction: column; /* Stack movie cards */
+        gap: 10px;
+    }
+
+    .card {
+        width: 90%; /* Make cards slightly narrower */
+        margin: 0 auto; /* Cnter the cards */
+    }
+    .card img{
+        object-fit: fill;
+    }
+
+    /* Adjust Movie Cards Container */
+    .movie-cards {
+        flex-direction: column; /* Stack cards vertically on mobile */
+        gap: 10px;
+    }
+
+    /* Adjust Search Results */
+    #searchResults {
+        width: 90%;
+        left: 5%; /* Center the dropdown */
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .info-button-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+}html {
+  height: 100%;
+  width: 100%;
+}
+
+
+.hamburger-menu {
+    display: none;  /* Hide by default */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer; 
+    font-size: 24px; 
+  }
+ 
+  /* Show the hamburger icon only on mobile devices */
+  @media (max-width: 768px) {
+    .hamburger-menu {
+      display: block; 
+    }
+    nav {
+      display: none;
+    }
+  }
+ 
+   /* ... (Your existing styles) */
+ 
+   nav.visible {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+    
+ 
+     padding: 20px;
+     text-align: center;  /* Center the links */
+     border-radius: 0 0 10px 10px; 
+   }
+ 
+   nav.visible a {
+     display: block; /* Ensure links stack vertically */
+    
+     font-size: 18px; 
+     text-decoration: none;
+     color: darkgray;
+   }
+ 
+   nav.visible a:hover,nav.visible a.active {
+    background-color:darkgray;
+    border-radius: 20px;
+    color: white;
+
+  }
