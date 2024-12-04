@@ -899,6 +899,11 @@ body {
 }
 .contact-info-mid{
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    gap: 40px;
 }
 .info-item {
     display: flex;
@@ -917,7 +922,7 @@ body {
 }
 .contact-info-mid .info-item p {
     font-size: 14px;
-    color: #4D2D2D;
+    color: white;
     margin: 5px 0 0 0;
 }
 .contact-form {
@@ -948,7 +953,12 @@ body {
 .contact-form button i {
     margin-left: 10px;
 }
-
+.break{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(217, 217, 217, 0.2); 
+    margin: 20px 0;
+}
 
 .footer {
   padding: 2rem 0;
