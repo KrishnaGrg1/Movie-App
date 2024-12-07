@@ -15,10 +15,11 @@ body {
     align-items: center;
     padding: 20px 40px;
     
+    
   }
   
   .search-container {
-    position: relative;
+ 
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Align items to the left */

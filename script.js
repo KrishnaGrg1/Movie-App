@@ -76,7 +76,7 @@ async function fetchAndDisplayTrendingMovies() {
         trailersContainer.innerHTML = ''; // Clear previous trailers
 
         // Only display a few trailers (for example, 3)
-        const trendingMovies = data.results.slice(0, 2);
+        const trendingMovies = data.results.slice(0, 3);
         displayMovieTrailers(trendingMovies);
         displayTrendingMovie(data.results[0]); // Display the top trending movie
     } catch (error) {
