@@ -363,7 +363,7 @@ body {
     background-color: lightgray;
     color: white;
     padding: 0 30px 20px 30px;
-    background-image: url('./topgun.webp');
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -748,10 +748,13 @@ body {
         gap: 10px;
         width: 100%;
     }
-    .trending{
-        width: 50%;
-        margin: 0 auto;
-    }
+    .trending {
+      background-size: contain; /* Scale the image to fit the container */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Prevent the image from repeating */
+      /* You may also want to set a specific height for the trending section */
+      height: 400px; /* Adjust height as needed */
+  }
     .trailer-item{
         width: 100%;
     }
@@ -859,8 +862,7 @@ body {
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
     gap: 4rem;
-    background: #3e4e50;
-    color: #fff9c4;
+
 }
 
 
@@ -1028,3 +1030,4 @@ body {
   margin-top: 1rem;
   padding: 1rem 0; /* Add some space above the copyright */
 }
+

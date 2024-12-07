@@ -122,10 +122,7 @@ function displayTrendingMovie(movie) {
         <p>${releaseDate}</p>
         <p>${movieOverview}</p>
         <div class="info-button-section">
-            <button id="watch">
-                <i class="fa fa-play"></i>
-                <span>Watch</span>
-            </button>
+            
             <button id="playlist">
                 Add to Playlist
             </button>
@@ -136,6 +133,10 @@ function displayTrendingMovie(movie) {
     const watchBtn = movieItem.querySelector('#watch');
     fetchMovieTrailer(movie.id).then(trailerUrl => {
         if (trailerUrl) {
+            // If a trailer is found, create and append the watch button
+            const watchBtn = document.createElement('button');
+            watchBtn.id = "watch";
+            watchBtn.innerHTML = `<i class="fa fa-play"></i><span>Watch</span>`;
             watchBtn.addEventListener('click', () => {
                 window.open(trailerUrl, '_blank'); // Open the trailer in a new tab
             });
