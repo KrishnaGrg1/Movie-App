@@ -19,7 +19,7 @@ body {
   }
   
   .search-container {
- 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Align items to the left */
@@ -152,7 +152,6 @@ body {
   main{
     display: flex;
     justify-content: space-between;
-    gap: 30px;
     padding: 20px 40px;
   }
   .left{
@@ -749,11 +748,11 @@ body {
         width: 100%;
     }
     .trending {
-      background-size: contain; /* Scale the image to fit the container */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevent the image from repeating */
-      /* You may also want to set a specific height for the trending section */
-      height: 400px; /* Adjust height as needed */
+      background-size: contain; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+     
+      height: 400px; 
   }
     .trailer-item{
         width: 100%;
@@ -799,9 +798,6 @@ body {
         flex-direction: column;
         gap: 10px;
     }
-}html {
-  height: 100%;
-  width: 100%;
 }
 
 
