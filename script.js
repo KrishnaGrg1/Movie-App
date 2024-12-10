@@ -313,3 +313,4 @@ window.addEventListener('DOMContentLoaded', fetchAndDisplayTopPicks);
    // Toggle the visibility of the navigation menu
    nav.classList.toggle('visible'); 
  });
+ 
