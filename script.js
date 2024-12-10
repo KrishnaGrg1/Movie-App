@@ -103,7 +103,6 @@ async function fetchMovieTrailer(movieId) {
     }
 }
 
-// Function to display the #1 trending movie
 function displayTrendingMovie(movie) {
     // Set the background image to the movie poster
     const posterPath = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'placeholder.jpg';
@@ -114,7 +113,7 @@ function displayTrendingMovie(movie) {
     movieItem.classList.add('info');
     
     const title = movie.title || movie.name;
-    const releaseDate = movie .release_date || movie.first_air_date;
+    const releaseDate = movie.release_date || movie.first_air_date;
     const movieOverview = movie.overview ? movie.overview + '...' : 'No overview available';
 
     movieItem.innerHTML = `
@@ -122,7 +121,9 @@ function displayTrendingMovie(movie) {
         <p>${releaseDate}</p>
         <p>${movieOverview}</p>
         <div class="info-button-section">
-            
+            <button id="watch">
+                <i class="fa fa-play"></i><span>Watch</span>
+            </button>
             <button id="playlist">
                 Add to Playlist
             </button>
@@ -131,24 +132,23 @@ function displayTrendingMovie(movie) {
 
     // Handle "Watch" button click to open trailer if available
     const watchBtn = movieItem.querySelector('#watch');
+    watchBtn.disabled = true; // Initially disable the button
+
     fetchMovieTrailer(movie.id).then(trailerUrl => {
         if (trailerUrl) {
-            // If a trailer is found, create and append the watch button
-            const watchBtn = document.createElement('button');
-            watchBtn.id = "watch";
-            watchBtn.innerHTML = `<i class="fa fa-play"></i><span>Watch</span>`;
+            watchBtn.disabled = false; // Enable the button if a trailer is found
             watchBtn.addEventListener('click', () => {
                 window.open(trailerUrl, '_blank'); // Open the trailer in a new tab
             });
         } else {
-            watchBtn.disabled = true; // Disable the button if no trailer is available
-            watchBtn.textContent = 'No Trailer Available';
+            watchBtn.textContent = 'No Trailer Available'; // Update button text if no trailer
         }
     });
 
     // Append movie item to the trending content section
     trendingSection.appendChild(movieItem);
 }
+
 
 // Function to display movie trailers
 async function displayMovieTrailers(movies) {
