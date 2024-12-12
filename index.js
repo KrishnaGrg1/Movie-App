@@ -34,7 +34,6 @@ searchInput.addEventListener('input', () => {
     }
 });
 
-
 // Function to display search results
 function displaySearchResults(results) {
     searchResults.innerHTML = ''; // Clear previous results
@@ -50,32 +49,27 @@ function displaySearchResults(results) {
         const title = result.title || result.name;
         const posterPath = result.poster_path ? `https://image.tmdb.org/t/p/w500${result.poster_path}` : 'placeholder.jpg';
         const date = result.release_date || result.first_air_date;
-        const id = result.id;
 
         const movieItem = document.createElement('div');
         movieItem.classList.add('search-item');
         movieItem.innerHTML = `
             <div class="search-item-thumbnail">
-                <img src="${posterPath}" alt="${title}" id="movie-poster-${id}">
+                <img src="${posterPath}" alt="${title}">
             </div>
             <div class="search-item-info">
                 <h3>${title}</h3>
                 <p>${result.media_type} <span>&nbsp; ${date}</span></p>
             </div>
-            <button class="watchListBtn" id="${id}">Add to Playlist</button>
+            <button class="watchListBtn" id="${result.id}">Add to Playlist</button>
         `;
-
-        // Add event listener to redirect to the movie details page when clicking the poster
-        const poster = movieItem.querySelector(`#movie-poster-${id}`);
-        poster.addEventListener('click', () => {
-            window.location.href = `./movie_details/movie_details.html?id=${id}`;
-        });
-
-        // Append the movie item to the search results
+ // Add event listener to redirect to details page
+ const poster = document.getElementById(`movie-poster-${id}`);
+ poster.addEventListener('click', () => {
+     window.location.href = `./movie_details/movie_details.html?id=${id}`;
+ });
         searchResults.appendChild(movieItem);
     });
 }
-
 
 // Fetch data for trending movies and display them along with trailers
 async function fetchAndDisplayTrendingMovies() {
@@ -325,3 +319,113 @@ window.addEventListener('DOMContentLoaded', fetchAndDisplayTopPicks);
    nav.classList.toggle('visible'); 
  });
  
+
+ function fetchMedia(containerClass, endpoint, mediaType) {
+    const containers = document.querySelectorAll(`.${containerClass}`);
+    containers.forEach((container) => {
+        fetch(`https://api.themoviedb.org/3/${endpoint}&api_key=${api_Key}`)
+            .then(response => response.json())
+            .then(data => {
+                const fetchResults = data.results;
+                if (fetchResults.length === 0) {
+                    container.innerHTML = `<p>No results found.</p>`;
+                    return;
+                }
+                fetchResults.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    const imageUrl = containerClass === 'netflix-container' ? item.poster_path : item.backdrop_path;
+                    itemElement.innerHTML = ` <img src="https://image.tmdb.org/t/p/w500${imageUrl}" alt="${item.title || item.name}"> `;
+                    container.appendChild(itemElement);
+
+                    itemElement.addEventListener('click', () => {
+                        const media_Type = item.media_type || mediaType
+                        window.location.href = `movie_details/movie_details.html?media=${media_Type}&id=${item.id}`;
+                    });
+                });
+
+                // Netflix Banner setup
+                if (containerClass === 'netflix-container') {
+                    const randomIndex = Math.floor(Math.random() * fetchResults.length);
+                    const randomMovie = fetchResults[randomIndex];
+                    const banner = document.getElementById('banner');
+                    const play = document.getElementById('play-button');
+                    const info = document.getElementById('more-info');
+                    const title = document.getElementById('banner-title');
+                    banner.src = `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
+                    title.textContent = randomMovie.title || randomMovie.name;
+
+                    function redirectToMovieDetails() {
+                        const media_Type = randomMovie.media_type || mediaType;
+                        window.location.href = `movie_details/movie_details.html?media=${media_Type}&id=${randomMovie.id}`;
+                    }
+
+                    play.addEventListener('click', redirectToMovieDetails);
+                    info.addEventListener('click', redirectToMovieDetails);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                const container = document.querySelector(`.${containerClass}`);
+                container.innerHTML = '<p>Failed to load data. Please try again later.</p>';
+            });
+    })
+}
+
+
+// Debounce function to limit the frequency of API calls
+let debounceTimeout;
+async function handleSearchInput() {
+    const query = searchInput.value;
+    if (query.length > 2) {
+        clearTimeout(debounceTimeout);
+        debounceTimeout = setTimeout(async () => {
+            const results = await fetchSearchResults(query);
+            if (results.length !== 0) {
+                searchResults.style.visibility = "visible";
+            } else {
+                searchResults.innerHTML = '<p>No results found</p>';
+                searchResults.style.visibility = "visible";
+            }
+            displaySearchResults(results);
+        }, 500); // Delay before making the API call
+    } else {
+        searchResults.innerHTML = '';
+        searchResults.style.visibility = "hidden";
+    }
+}
+
+// Fetch search results from TMDB API
+async function fetchSearchResults(query) {
+    const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_Key}&query=${query}`);
+    const data = await response.json();
+    return data.results || [];
+}
+
+
+// Update the watchlist button text based on stored movies
+function updateWatchListBtn(movie) {
+    const watchListBtn = document.querySelector(`[id="${movie.id}"]`);
+    if (watchListBtn) {
+        const buttonText = watchlist.some(watchlistItem => watchlistItem.id === movie.id)
+            ? "Go to WatchList"
+            : "Add to WatchList";
+        watchListBtn.textContent = buttonText;
+    }
+}
+
+// Add movie to the watchlist
+function addToWatchList(movie) {
+    if (!watchlist.some(watchlistItem => watchlistItem.id === movie.id)) {
+        watchlist.push(movie);
+        localStorage.setItem('watchlist', JSON.stringify(watchlist)); // Store updated watchlist
+        updateWatchListBtn(movie); // Update button text
+    }
+}
+
+// Close search results when clicking outside
+document.addEventListener('click', (event) => {
+    if (!searchResults.contains(event.target) && !searchInput.contains(event.target)) {
+        searchResults.innerHTML = '';
+        searchResults.style.visibility = "hidden";
+    }
+});

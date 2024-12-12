@@ -70,6 +70,12 @@ body {
   }
   
 
+  main{
+    display: block;
+  }
+  #contact{
+    display: block;
+  }
   
    .profile {
     background-color: rgba(217, 217, 217, 0.2);
