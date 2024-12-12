@@ -1,7 +1,7 @@
 // Selecting the logo element and adding a click event listener to navigate to the homepage
 const logo = document.querySelector('.logo');
 logo.addEventListener('click', () => {
-    window.location.href = '../home.html';
+    window.location.href = '../index.html';
 });
 
 // Selecting various elements on the page for displaying movie details

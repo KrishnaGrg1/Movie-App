@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
 
 // event listener to logo to navigate to the index page
 logo.addEventListener('click', () => {
-    window.location.href = '../home.html';
+    window.location.href = '../index.html';
 });
 
 
