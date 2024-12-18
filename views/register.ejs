@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+  <div class="container">
+    <div class="signup-box">
+      <h2>SIGN UP</h2>
+      <form id="signupForm" action="/register" method="POST">
+        <!-- Name Fields -->
+        <div class="name-fields">
+          <input type="text" id="fname" name="fname" placeholder="First Name" required>
+          <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+        </div>
+
+        <!-- Email Field -->
+        <input type="email" id="email" name="email" placeholder="Email" required>
+
+        <!-- Password Fields -->
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" class="password" placeholder="Create Password" required>
+          <span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
+        </div>
+
+      
+
+        <!-- Divider and Submit Button -->
+        <div class="divider">
+          <button type="submit" class="signup-btn">Sign Up</button>
+        </div>
+      </form>
+
+      <!-- Login Link -->
+      <p class="login-text">
+        Already have an account? <a href="login" class="login-link">Log In</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
